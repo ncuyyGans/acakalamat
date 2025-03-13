@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acak Alamat By: SY</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        textarea { width: 80%; height: 100px; margin: 10px 0; }
+        button { padding: 10px 20px; cursor: pointer; margin: 5px; }
+        #output { margin-top: 20px; font-size: 1.2em; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>ACAK ALAMAT</h2>
+    <textarea id="inputText" placeholder="Masukkan kata, dipisahkan dengan koma"></textarea><br>
+    <button onclick="acakKata()">Acak</button>
+    <div id="output"></div>
+    <button id="copyButton" onclick="copyToClipboard()" style="display: none;">Copy</button><script>
+    function acakKata() {
+        let input = document.getElementById("inputText").value;
+        let kataArray = input.split(",").map(kata => kata.trim());
+        
+        for (let i = kataArray.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [kataArray[i], kataArray[j]] = [kataArray[j], kataArray[i]];
+        }
+        
+        let outputText = kataArray.join(", ");
+        document.getElementById("output").innerText = outputText;
+        
+        let copyButton = document.getElementById("copyButton");
+        copyButton.style.display = "inline-block";
+    }
+
+    function copyToClipboard() {
+        let outputText = document.getElementById("output").innerText;
+        navigator.clipboard.writeText(outputText).then(() => {
+            alert("Hasil telah disalin!");
+        }).catch(err => {
+            console.error("Gagal menyalin teks: ", err);
+        });
+    }
+</script>
+
+</body>
+</html>
