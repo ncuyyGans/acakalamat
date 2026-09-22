@@ -1,3 +1,5 @@
+<img width="1366" height="1068" alt="image" src="https://github.com/user-attachments/assets/056e8606-05e9-46ac-9d1e-fe6dae08b86f" />
+
 # AcakAlamat
 
 Aplikasi web statis untuk mengacak susunan komponen alamat langsung di browser. Tidak ada data yang dikirim ke server.
